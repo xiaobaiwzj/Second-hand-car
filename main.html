@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>carousel模块快速使用</title>
+  <link rel="stylesheet" href="layui/css/layui.css" media="all">
+  <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+  <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+
+<body>  
+
+
+    
+ <div id="main1" style="width: 600px;height:400px; margin-right: 800px;" class="layui-layout-right" ></div>
+
+ <div id="main" style="width: 600px;height:400px; margin-left: 700px;" ></div>
+  
+
+
+<div class="layui-carousel " id="test1"  style="margin-left: 190px ;">
+  <div carousel-item  >
+   <div>
+	   <a href="page/car/car.html"><img  width="100%" src="img/8.jpg"></a>
+	   </div>
+    <div><a href="page/car/car.html"><img  width="100%" src="img/6.jpg"></a>
+	   </div>
+    <div><a href="page/car/car.html"><img  width="100%" src="img/9.jpg"></a>
+	   </div>
+    <div><a href="page/car/car.html"><img  width="100%" src="img/10.jpg"></a>
+	   </div>
+    <div><img  width="100%" src="img/8.jpg">
+	   </div>
+</div>
+ 
+ <script src="layui/layui.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '品牌销售榜'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["大众","本田","别克","福特","宝马","雪佛兰"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [1000, 500, 3600, 1000, 1000, 2000]
+            }]
+        };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+		var myChart = echarts.init(document.getElementById('main1'));
+		 
+		// 指定图表的配置项和数据
+		option = {
+		    backgroundColor: '#2c343c',
+		    visualMap: {
+		        show: false,
+		        min: 80,
+		        max: 600,
+		        inRange: {
+		            colorLightness: [0, 1]
+		        }
+		    },
+		    series : [
+		        {
+		            name: '访问来源',
+		            type: 'pie',
+		            radius: '55%',
+		            data:[
+		                {value:235, name:'视频广告'},
+		                {value:274, name:'联盟广告'},
+		                {value:310, name:'邮件营销'},
+		                {value:335, name:'直接访问'},
+		                {value:400, name:'搜索引擎'}
+		            ],
+		            roseType: 'angle',
+		            label: {
+		                normal: {
+		                    textStyle: {
+		                        color: 'rgba(255, 255, 255, 0.3)'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    lineStyle: {
+		                        color: 'rgba(255, 255, 255, 0.3)'
+		                    }
+		                }
+		            },
+		            itemStyle: {
+		                normal: {
+		                    color: '#c23531',
+		                    shadowBlur: 200,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+// <!-- 条目中可以是任意内容，如：<img src=""> -->
+
+//这是折线图
+  var myChart = echarts.init(document.getElementById('main1'));
+
+       option = {
+           backgroundColor:'#ffffff',
+           tooltip : {
+               trigger: 'item',
+               formatter: "{a} <br/>{b} : {c} ({d}%)"
+           },
+           legend: {
+               orient:'vertical',
+               top:'10%',
+               right:'20px',
+               data : ['别克', '雪佛兰', '宝马','福特', '大众', '本田', '法拉利'],
+           },
+           
+           calculable : true,
+           color:['#737dff','#0064b9','#00ebc0','#06c3e1',
+                   '#6aa8f3','#7bc3fe','#ff6f79'],
+           series : [
+               {
+                   name:'销售',
+                   type:'pie',
+                   radius : ['20%', '80%'],
+                   center : ['50%', '50%'],
+                   roseType : 'radius',
+                   label: {
+                       normal: {
+                           show: false
+                       },
+                       emphasis: {
+                           show: false
+                       }
+                   },
+                   lableLine: {
+                       normal: {
+                           show: false
+                       },
+                       emphasis: {
+                           show: true
+                       }
+                   },
+                   data:[
+                       {value:20, name:'别克'},
+                       {value:15, name:'雪佛兰'},
+                       {value:12, name:'宝马'},
+                       {value:8, name:'福特'},
+                       {value:10, name:'大众'},
+                       {value:5, name:'本田'},
+                       {value:4, name:'法拉利'},
+                   ]
+               }
+           ]
+       };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);///
+ 
+ 
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '75%' ,//设置容器宽度
+	height: '500px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+</body>
+</html>

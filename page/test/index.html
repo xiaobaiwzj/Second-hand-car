@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>数据展示</title>
+  <link rel="stylesheet" href="../../layui/css/layui.css" type="text/css">
+  <style>
+  label.layui-form-label {
+    text-align: left;
+  }
+  </style>
+</head>
+<body>
+<!--总体页面-->
+<fieldset class="layui-elem-field">
+  <legend style="text-align: center">
+    <h1>学生信息数据列表</h1>
+  </legend>
+  <div class="layui-field-box">
+    <!--查询表单-->
+    <div class="layui-row">
+      <div class="layui-col-md8 ">
+        <form action="#1" class="layui-form">
+          <div class="layui-inline">
+            姓名
+            <div class="layui-input-inline">
+              <input type="text" name="" autocomplete="off" class="layui-input layui-inputxs">
+            </div>
+            年龄
+            <div class="layui-input-inline">
+              <input type="text" name="" autocomplete="off" class="layui-input">
+            </div>
+            邮箱
+            <div class="layui-input-inline">
+              <input type="text" name="" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <div class="layui-input-inline">
+              <button type="button" name="" class="layui-btn" id="search">查询</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="layui-col-md4">
+        <div class="layui-btn-container">
+          <button type="button" class="layui-btn layui-btn-warm" id="delSelect">
+            <i class="layui-icon layui-icon-delete"></i>
+            批量删除
+          </button>
+          <button type="button" class="layui-btn" id="addNewInfo">
+            <i class="layui-icon layui-icon-add-1"></i>
+            添加
+          </button>
+
+        </div>
+      </div>
+    </div>
+    <!--展示表格-->
+    <table class="layui-table" lay-filter="test" lay-data="{id: 'info'}" id="info"></table>
+  </div>
+</fieldset>
+
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script src="../../layui/lay/modules/jquery.js"></script>
+
+<script src="test.js"></script>
+</body>
+</html>
+
